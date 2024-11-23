@@ -15,10 +15,10 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 px-6 py-4 glass-effect">
+    <nav className="fixed w-full z-50 px-6 py-4 bg-dermart-black/80 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-dermart-white">
-          derm<span className="text-primary">ART</span>
+        <Link to="/" className="text-2xl font-bold text-dermart-white group">
+          derm<span className="text-primary group-hover:text-primary/80 transition-colors">ART</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -38,7 +38,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <button
-          className="md:hidden text-dermart-white"
+          className="md:hidden text-dermart-white/90 hover:text-primary transition-colors"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -46,7 +46,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 w-full bg-dermart-black/95 backdrop-blur-lg md:hidden">
+          <div className="absolute top-full left-0 w-full bg-dermart-black/95 backdrop-blur-lg border-b border-white/5 md:hidden">
             <div className="flex flex-col items-center py-4">
               {links.map((link) => (
                 <Link

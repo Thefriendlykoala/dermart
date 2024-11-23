@@ -9,10 +9,10 @@ const Home = () => {
         transition={{ duration: 0.6 }}
         className="text-center"
       >
-        <h1 className="text-6xl md:text-8xl font-bold mb-6">
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-dermart-white to-dermart-white/80">
           derm<span className="text-primary">ART</span>
         </h1>
-        <p className="text-xl md:text-2xl text-dermart-white/80 max-w-2xl mx-auto">
+        <p className="text-xl md:text-2xl text-dermart-white/70 max-w-2xl mx-auto">
           Exploring the intersection of art, sound, and technology
         </p>
       </motion.div>
@@ -31,12 +31,12 @@ const Home = () => {
           <motion.a
             key={item.path}
             href={item.path}
-            className="portfolio-card p-8 text-center"
+            className="portfolio-card p-8 text-center group"
             whileHover={{ y: -5 }}
           >
-            <h2 className="text-2xl font-bold mb-4">{item.title}</h2>
-            <div className="h-40 bg-dermart-gray/50 rounded-lg mb-4"></div>
-            <p className="text-dermart-white/60">Explore Projects →</p>
+            <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{item.title}</h2>
+            <div className="h-40 bg-dermart-gray/20 rounded-lg mb-4 group-hover:bg-dermart-gray/30 transition-colors"></div>
+            <p className="text-dermart-white/60 group-hover:text-primary/80 transition-colors">Explore Projects →</p>
           </motion.a>
         ))}
       </motion.div>

@@ -11,12 +11,12 @@
 
 @layer components {
   .nav-link {
-    @apply relative px-4 py-2 text-dermart-white hover:text-primary transition-colors duration-300;
+    @apply relative px-4 py-2 text-dermart-white/90 hover:text-primary transition-colors duration-300;
   }
 
   .nav-link::after {
     content: '';
-    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary/80 transition-all duration-300;
   }
 
   .nav-link:hover::after {
@@ -24,11 +24,12 @@
   }
 
   .portfolio-card {
-    @apply relative overflow-hidden rounded-lg bg-dermart-gray;
-    @apply transform transition-all duration-300 hover:scale-[1.02];
+    @apply relative overflow-hidden rounded-lg bg-dermart-gray/30 backdrop-blur-sm border border-white/5;
+    @apply transform transition-all duration-300 hover:scale-[1.02] hover:border-primary/20;
   }
 
   .glass-effect {
-    @apply backdrop-blur-md bg-white/10 rounded-lg;
+    @apply backdrop-blur-md bg-white/5 rounded-lg border border-white/10;
+    @apply shadow-lg shadow-black/5;
   }
 }
