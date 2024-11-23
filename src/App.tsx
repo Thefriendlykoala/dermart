@@ -1,24 +1,26 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Navigation from "./components/Navigation";
+import Home from "./pages/Home";
+import Art from "./pages/Art";
+import Music from "./pages/Music";
+import Web from "./pages/Web";
+import Contact from "./pages/Contact";
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Navigation />
+      <main className="pt-20 min-h-screen">
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/art" element={<Art />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/web" element={<Web />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+      </main>
+    </BrowserRouter>
+  );
+};
 
 export default App;
