@@ -12,7 +12,7 @@ const Web = () => {
         <h1 className="text-4xl md:text-6xl font-bold mb-8">Web & Programs</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="portfolio-card p-6">
-            <h3 className="text-xl font-bold mb-4">Pd-Public Disturbance</h3>
+            <h3 className="text-xl font-bold mb-4">PUBLIC DISTURBANCE</h3>
             <div className="h-40 bg-dermart-gray/50 rounded-lg mb-4 flex items-center justify-center">
               <img 
                 src="/lovable-uploads/0209ab9c-169d-41a3-b892-40af5e168215.png" 
