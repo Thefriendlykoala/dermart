@@ -11,14 +11,25 @@ const Web = () => {
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-8">Web & Programs</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Placeholder for web projects */}
           <div className="portfolio-card p-6">
-            <h3 className="text-xl font-bold mb-4">Project 1</h3>
-            <div className="h-40 bg-dermart-gray/50 rounded-lg mb-4"></div>
+            <h3 className="text-xl font-bold mb-4">Pd-Public Disturbance</h3>
+            <div className="h-40 bg-dermart-gray/50 rounded-lg mb-4 flex items-center justify-center">
+              <span className="text-dermart-white/60">Brand Website Preview</span>
+            </div>
+            <p className="text-dermart-white/80">
+              A custom-designed website for the clothing brand "Pd-Public Disturbance", 
+              showcasing the latest collections and brand identity.
+            </p>
           </div>
           <div className="portfolio-card p-6">
-            <h3 className="text-xl font-bold mb-4">Project 2</h3>
-            <div className="h-40 bg-dermart-gray/50 rounded-lg mb-4"></div>
+            <h3 className="text-xl font-bold mb-4">Hardware Programming Projects</h3>
+            <div className="h-40 bg-dermart-gray/50 rounded-lg mb-4 flex items-center justify-center">
+              <span className="text-dermart-white/60">Hardware Project Demo</span>
+            </div>
+            <p className="text-dermart-white/80">
+              Practice projects focused on hardware programming, demonstrating fundamental 
+              coding concepts and electronic system integration.
+            </p>
           </div>
         </div>
       </motion.div>
