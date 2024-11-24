@@ -12,35 +12,35 @@ interface ArtworkItem {
 const artworks: ArtworkItem[] = [
   {
     id: "1",
-    title: "Oil Painting Study",
-    imageUrl: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5",
-    category: "Oil",
-    description: "Classical oil painting technique"
+    title: "Urban Spray Art",
+    imageUrl: "https://images.unsplash.com/photo-1569355738086-cc1e5d9d2296",
+    category: "Paint/Spray paint",
+    description: "Contemporary urban art expression"
   },
   {
     id: "2",
-    title: "Watercolor Landscape",
-    imageUrl: "https://images.unsplash.com/photo-1580196969807-cc6de06c05be",
-    category: "Watercolor",
-    description: "Fluid watercolor expression"
+    title: "Digital Landscape",
+    imageUrl: "https://images.unsplash.com/photo-1563089145-599997674d42",
+    category: "Digital/Photography",
+    description: "Digital art and photo manipulation"
   },
   {
     id: "3",
-    title: "Charcoal Portrait",
-    imageUrl: "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
-    category: "Charcoal",
-    description: "Dynamic charcoal drawing"
+    title: "Modern Sculpture",
+    imageUrl: "https://images.unsplash.com/photo-1544531586-fde5298cdd40",
+    category: "Model/Sculpting",
+    description: "Contemporary sculptural form"
   },
   {
     id: "4",
-    title: "Acrylic Abstract",
-    imageUrl: "https://images.unsplash.com/photo-1541961017774-22349e4a1262",
-    category: "Acrylic",
-    description: "Modern acrylic composition"
+    title: "Architectural Blueprint",
+    imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+    category: "Technical Drawing",
+    description: "Precision technical illustration"
   }
 ];
 
-const categories = ["Oil", "Watercolor", "Charcoal", "Acrylic"];
+const categories = ["Paint/Spray paint", "Digital/Photography", "Model/Sculpting", "Technical Drawing"];
 
 const Art = () => {
   return (
@@ -53,7 +53,7 @@ const Art = () => {
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-8">Art & Discovery</h1>
         
-        <Tabs defaultValue="Oil" className="w-full">
+        <Tabs defaultValue="Paint/Spray paint" className="w-full">
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5">
             {categories.map((category) => (
               <TabsTrigger
