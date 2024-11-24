@@ -14,7 +14,11 @@ const Web = () => {
           <div className="portfolio-card p-6">
             <h3 className="text-xl font-bold mb-4">Pd-Public Disturbance</h3>
             <div className="h-40 bg-dermart-gray/50 rounded-lg mb-4 flex items-center justify-center">
-              <span className="text-dermart-white/60">Brand Website Preview</span>
+              <img 
+                src="/lovable-uploads/0209ab9c-169d-41a3-b892-40af5e168215.png" 
+                alt="Public Disturbance Logo" 
+                className="h-32 w-auto object-contain"
+              />
             </div>
             <p className="text-dermart-white/80">
               A custom-designed website for the clothing brand "Pd-Public Disturbance", 
