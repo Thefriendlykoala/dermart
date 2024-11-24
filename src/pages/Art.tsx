@@ -12,35 +12,35 @@ interface ArtworkItem {
 const artworks: ArtworkItem[] = [
   {
     id: "1",
-    title: "Digital Circuits",
-    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-    category: "2DArt",
-    description: "Abstract digital circuit visualization"
+    title: "Oil Painting Study",
+    imageUrl: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5",
+    category: "Oil",
+    description: "Classical oil painting technique"
   },
   {
     id: "2",
-    title: "Code Canvas",
-    imageUrl: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-    category: "2DArt",
-    description: "Colorful code patterns"
+    title: "Watercolor Landscape",
+    imageUrl: "https://images.unsplash.com/photo-1580196969807-cc6de06c05be",
+    category: "Watercolor",
+    description: "Fluid watercolor expression"
   },
   {
     id: "3",
-    title: "Digital Creation",
-    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-    category: "2DArt",
-    description: "Digital art creation process"
+    title: "Charcoal Portrait",
+    imageUrl: "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
+    category: "Charcoal",
+    description: "Dynamic charcoal drawing"
   },
   {
     id: "4",
-    title: "Abstract Waves",
-    imageUrl: "https://images.unsplash.com/photo-1486718448742-163732cd1544",
-    category: "2DArt",
-    description: "Minimalist wave structures"
+    title: "Acrylic Abstract",
+    imageUrl: "https://images.unsplash.com/photo-1541961017774-22349e4a1262",
+    category: "Acrylic",
+    description: "Modern acrylic composition"
   }
 ];
 
-const categories = ["2DArt", "3DArt", "Traditional"];
+const categories = ["Oil", "Watercolor", "Charcoal", "Acrylic"];
 
 const Art = () => {
   return (
@@ -53,7 +53,7 @@ const Art = () => {
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-8">Art & Discovery</h1>
         
-        <Tabs defaultValue="2DArt" className="w-full">
+        <Tabs defaultValue="Oil" className="w-full">
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5">
             {categories.map((category) => (
               <TabsTrigger
