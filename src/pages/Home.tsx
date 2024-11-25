@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { PencilRuler, AudioWaveform, Monitor } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -24,9 +25,9 @@ const Home = () => {
         className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
       >
         {[
-          { title: 'Art/Discovery', path: '/art' },
-          { title: 'Music/Sounds', path: '/music' },
-          { title: 'Web/Programs', path: '/web' },
+          { title: 'Art/Discovery', path: '/art', Icon: PencilRuler },
+          { title: 'Music/Sounds', path: '/music', Icon: AudioWaveform },
+          { title: 'Web/Programs', path: '/web', Icon: Monitor },
         ].map((item) => (
           <motion.a
             key={item.path}
@@ -35,7 +36,9 @@ const Home = () => {
             whileHover={{ y: -5 }}
           >
             <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{item.title}</h2>
-            <div className="h-40 bg-dermart-gray/20 rounded-lg mb-4 group-hover:bg-dermart-gray/30 transition-colors"></div>
+            <div className="h-40 bg-dermart-gray/20 rounded-lg mb-4 group-hover:bg-dermart-gray/30 transition-colors flex items-center justify-center">
+              <item.Icon className="w-16 h-16 text-primary group-hover:text-primary/80 transition-colors" />
+            </div>
             <p className="text-dermart-white/60 group-hover:text-primary/80 transition-colors">Explore Projects →</p>
           </motion.a>
         ))}
