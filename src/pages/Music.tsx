@@ -80,13 +80,11 @@ const Music = () => {
                 className="rounded-lg"
               />
             </motion.div>
-          </TabsContent>
 
-          <TabsContent value="Rap" className="space-y-6">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.4 }}
               className="portfolio-card p-4"
             >
               <iframe 
@@ -103,7 +101,7 @@ const Music = () => {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.5 }}
               className="portfolio-card p-4"
             >
               <iframe 
@@ -116,13 +114,11 @@ const Music = () => {
                 className="rounded-lg"
               />
             </motion.div>
-          </TabsContent>
 
-          <TabsContent value="Remixes" className="space-y-6">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.6 }}
               className="portfolio-card p-4"
             >
               <iframe 
@@ -135,6 +131,14 @@ const Music = () => {
                 className="rounded-lg"
               />
             </motion.div>
+          </TabsContent>
+
+          <TabsContent value="Rap" className="space-y-6">
+            {/* Empty Rap section */}
+          </TabsContent>
+
+          <TabsContent value="Remixes" className="space-y-6">
+            {/* Empty Remixes section */}
           </TabsContent>
         </Tabs>
       </motion.div>
