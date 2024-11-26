@@ -9,48 +9,50 @@ import {
 import { useAudio } from "@/contexts/AudioContext";
 
 interface Track {
+  id: string;
   url: string;
   embedUrl: string;
+  title: string;
 }
 
 const tracks: Record<string, Track[]> = {
   EDM: [
     {
+      id: "1",
+      title: "Take It Easy Man",
       url: "https://soundcloud.com/dermart/take-it-easy-man",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1953703903&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1953703903"
     },
     {
+      id: "2",
+      title: "Eetswa",
       url: "https://soundcloud.com/dermart/eetswa",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1876708866&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-    },
-    {
-      url: "https://soundcloud.com/dermart/track-2",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1407833932&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-    },
-    {
-      url: "https://soundcloud.com/dermart/track-3",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1925441912&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-    },
-    {
-      url: "https://soundcloud.com/dermart/track-4",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1925455823&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-    },
-    {
-      url: "https://soundcloud.com/dermart/track-5",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/586007346&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-    },
+      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1876708866"
+    }
   ],
   Rap: [
     {
+      id: "3",
+      title: "Lanky LC - Rap Beats",
       url: "https://soundcloud.com/dermart/sets/rap-beats",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913529643&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913529643"
     },
+    {
+      id: "4",
+      title: "FATTYFROMTHE4",
+      url: "https://soundcloud.com/dermart/sets/fattyfromthe4",
+      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913529643"
+    }
   ],
-  Remixes: [],
+  Remixes: []
 };
 
 export const MusicCarousel = ({ category }: { category: keyof typeof tracks }) => {
   const { setTrack } = useAudio();
+
+  const handleTrackClick = (track: Track) => {
+    setTrack(track.url);
+  };
 
   return (
     <Carousel
@@ -61,24 +63,19 @@ export const MusicCarousel = ({ category }: { category: keyof typeof tracks }) =
       className="w-full max-w-2xl mx-auto"
     >
       <CarouselContent>
-        {tracks[category].map((track, index) => (
-          <CarouselItem key={index} className="basis-full">
+        {tracks[category].map((track) => (
+          <CarouselItem key={track.id} className="basis-full">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index }}
-              className="portfolio-card aspect-square p-4"
-              onClick={() => setTrack(track.url)}
+              transition={{ delay: 0.1 }}
+              className="portfolio-card aspect-square p-4 cursor-pointer"
+              onClick={() => handleTrackClick(track)}
             >
-              <iframe 
-                width="100%" 
-                height="100%" 
-                scrolling="no" 
-                frameBorder="no" 
-                allow="autoplay" 
-                src={track.embedUrl}
-                className="rounded-lg"
-              />
+              <div className="w-full h-full flex flex-col items-center justify-center">
+                <h3 className="text-xl font-bold mb-4 text-center">{track.title}</h3>
+                <p className="text-sm text-gray-400">Click to play</p>
+              </div>
             </motion.div>
           </CarouselItem>
         ))}
