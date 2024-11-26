@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 
@@ -31,7 +31,7 @@ const Music = () => {
         transition={{ duration: 0.6 }}
         className="max-w-4xl mx-auto"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-8">Music Collection</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-8">dermPRODUCER</h1>
         
         <Tabs defaultValue={genres[0]} className="w-full">
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5">
@@ -53,7 +53,7 @@ const Music = () => {
                   <div className="portfolio-card p-4 bg-black">
                     <iframe 
                       width="100%" 
-                      height="450" 
+                      height="250" 
                       scrolling="no" 
                       frameBorder="no" 
                       allow="autoplay" 

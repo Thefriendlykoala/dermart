@@ -7,18 +7,18 @@ const Navigation = () => {
   const location = useLocation();
 
   const links = [
-    { path: '/', label: 'Home' },
+    { path: '/', label: 'dermHOME' },
     { path: '/art', label: 'dermARTIST' },
     { path: '/music', label: 'dermPRODUCER' },
     { path: '/web', label: 'dermHACKER' },
-    { path: '/contact', label: 'dermFeatured' },
+    { path: '/contact', label: 'dermFEATURED' },
   ];
 
   return (
     <nav className="fixed w-full z-50 px-6 py-4 bg-dermart-black/80 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold text-dermart-white group">
-          derm<span className="text-primary group-hover:text-primary/80 transition-colors">ART</span>
+          derm<span className="text-primary">ART</span>
         </Link>
 
         {/* Desktop Navigation */}

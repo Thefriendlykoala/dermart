@@ -1,49 +1,27 @@
 import { ArtworkCategories } from '@/types/artwork';
 
 export const artworkData: ArtworkCategories = {
-  "Album Covers": [
+  "Digital Art": [
     {
-      id: "2",
-      title: "VIRUS - Urban Commentary",
-      imageUrl: "/lovable-uploads/5ff68faf-c890-493f-9509-3b66f9124a53.png",
+      id: "digital-1",
+      title: "Spider-Man 2099 - Dynamic Motion",
+      imageUrl: "/lovable-uploads/94fdce7b-d487-469a-8a27-db12f6259baf.png",
       analysis: {
-        composition: "High contrast imagery featuring a figure in protective gear against a stark background, text overlay creates hierarchy.",
-        technique: "Digital illustration with limited color palette, emphasizing yellow-green hazmat suit against dark backdrop.",
-        concept: "Commentary on modern societal fears and health consciousness, merging urban culture with pandemic imagery.",
-        interpretation: "The work reflects contemporary anxieties through the lens of street culture, with the parental advisory label adding a layer of social commentary."
+        composition: "Dynamic diagonal composition with strong contrast between red and blue elements",
+        technique: "Digital illustration with bold color blocking and motion effects",
+        concept: "Modern interpretation of Spider-Man 2099 character with emphasis on movement and energy",
+        interpretation: "The artwork captures the futuristic and dynamic nature of the character through bold color choices and dramatic posing"
       }
     },
     {
-      id: "3",
-      title: "The XL Files - Paranormal Pop",
-      imageUrl: "/lovable-uploads/779a5ef0-d250-4008-8d55-40a269314123.png",
+      id: "digital-2",
+      title: "Stolen Typography",
+      imageUrl: "/lovable-uploads/50714087-2c3a-4fd5-8211-3220f93b7cd5.png",
       analysis: {
-        composition: "Centered UFO beam creates strong vertical movement, red atmospheric background adds dramatic effect.",
-        technique: "Digital painting with atmospheric effects, utilizing light and shadow to create depth and mystery.",
-        concept: "Pop culture reference merging sci-fi imagery with contemporary design aesthetics.",
-        interpretation: "A playful yet ominous take on conspiracy culture, using familiar UFO imagery with a modern twist."
-      }
-    },
-    {
-      id: "4",
-      title: "Feel Trust - Digital Portrait",
-      imageUrl: "/lovable-uploads/c4007591-62c7-4138-bd29-ef7b10820bae.png",
-      analysis: {
-        composition: "Split composition with portrait dominating left side, typography aligned vertically on right.",
-        technique: "Digital manipulation with duotone effect in blue, heavy texture overlays create depth.",
-        concept: "Exploration of trust through portraiture and typography, creating a cohesive visual narrative.",
-        interpretation: "The piece examines human connection in the digital age, with the blue palette suggesting technology and coldness."
-      }
-    },
-    {
-      id: "5",
-      title: "Trap Invaders - Digital Decay",
-      imageUrl: "/lovable-uploads/ec947d18-df30-4f7f-99e4-b45a23741e24.png",
-      analysis: {
-        composition: "Layered typography and geometric shapes create depth, with intentional digital artifacts.",
-        technique: "Digital collage with glitch effects, monochromatic green palette with high contrast elements.",
-        concept: "Merging of gaming aesthetics with trap music culture, exploring digital degradation.",
-        interpretation: "Commentary on the intersection of digital culture and music, with intentional corruption suggesting artistic rebellion."
+        composition: "Geometric typography with chevron patterns in a striking vertical arrangement",
+        technique: "Vector design with bold color blocking and repeated geometric elements",
+        concept: "Urban street art aesthetic applied to typography",
+        interpretation: "The design creates depth and movement through layered geometric shapes and bold color contrasts"
       }
     }
   ],
@@ -79,6 +57,30 @@ export const artworkData: ArtworkCategories = {
         technique: "Vector design with clean edges and dramatic shadow work creating a powerful 3D effect.",
         concept: "Urban street culture expressed through bold, confident typography.",
         interpretation: "The logo conveys energy and positivity through its dynamic typography and bold color choice."
+      }
+    }
+  ],
+  "Brand Identity": [
+    {
+      id: "brand-1",
+      title: "dermArt - Splash Logo",
+      imageUrl: "/lovable-uploads/08fa8208-9235-4842-b722-3d4d31170a59.png",
+      analysis: {
+        composition: "Playful typography with organic splash elements",
+        technique: "Digital design combining clean typography with fluid shapes",
+        concept: "Brand identity merging structured text with creative expression",
+        interpretation: "The design represents the fusion of technical precision and artistic freedom"
+      }
+    },
+    {
+      id: "brand-2",
+      title: "D Mark - Red Diamond",
+      imageUrl: "/lovable-uploads/56e4a8c2-892d-433b-8de0-e5dbeda85138.png",
+      analysis: {
+        composition: "Geometric diamond shape with metallic 'D' letterform",
+        technique: "3D rendering with dramatic lighting and metallic textures",
+        concept: "Premium brand mark utilizing depth and lighting",
+        interpretation: "The design conveys sophistication through dimensional effects and rich red tones"
       }
     }
   ],
