@@ -23,6 +23,14 @@ const songs: Song[] = [
 const genres = ["Rap", "EDM", "Instrumentals"];
 
 const Music = () => {
+  const renderTitle = (text: string) => {
+    return text.split('').map((char, index) => (
+      <span key={index} className={char === char.toUpperCase() ? 'text-primary' : ''}>
+        {char}
+      </span>
+    ));
+  };
+
   return (
     <div className="container mx-auto px-6">
       <motion.div
@@ -31,7 +39,9 @@ const Music = () => {
         transition={{ duration: 0.6 }}
         className="max-w-4xl mx-auto"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-8">dermPRODUCER</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-8 text-center">
+          {renderTitle('dermPRODUCER')}
+        </h1>
         
         <Tabs defaultValue={genres[0]} className="w-full">
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5">

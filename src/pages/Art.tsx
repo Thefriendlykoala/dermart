@@ -17,19 +17,12 @@ const Art = () => {
     return artworkData[currentCategory] || [];
   };
 
-  const getPageTitle = () => {
-    switch (currentCategory) {
-      case "All":
-        return "Art & Discovery";
-      case "Album Covers":
-        return "Album Cover Designs";
-      case "Logos":
-        return "Logo Collection";
-      case "Graffiti":
-        return "Street Art Gallery";
-      default:
-        return "Art & Discovery";
-    }
+  const renderTitle = (text: string) => {
+    return text.split('').map((char, index) => (
+      <span key={index} className={char === char.toUpperCase() ? 'text-primary' : ''}>
+        {char}
+      </span>
+    ));
   };
 
   return (
@@ -47,7 +40,7 @@ const Art = () => {
           transition={{ duration: 0.3 }}
           className="text-4xl md:text-6xl font-bold mb-12"
         >
-          dermARTIST
+          {renderTitle('dermARTIST')}
         </motion.h1>
         
         <Tabs 

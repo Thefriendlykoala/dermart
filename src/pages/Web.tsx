@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
 
 const Web = () => {
+  const renderTitle = (text: string) => {
+    return text.split('').map((char, index) => (
+      <span key={index} className={char === char.toUpperCase() ? 'text-primary' : ''}>
+        {char}
+      </span>
+    ));
+  };
+
   return (
     <div className="container mx-auto px-6">
       <motion.div
@@ -9,7 +17,9 @@ const Web = () => {
         transition={{ duration: 0.6 }}
         className="max-w-4xl mx-auto"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-8">dermHACKER</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-8 text-center">
+          {renderTitle('dermHACKER')}
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="portfolio-card p-6">
             <h3 className="text-xl font-bold mb-4">PUBLIC DISTURBANCE</h3>
