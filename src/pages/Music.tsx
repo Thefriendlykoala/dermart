@@ -45,12 +45,32 @@ const Music = () => {
               className="w-full max-w-2xl mx-auto"
             >
               <CarouselContent>
-                {/* EETSWA Track */}
+                {/* Take It Easy Man Track */}
                 <CarouselItem className="basis-full">
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
+                    className="portfolio-card aspect-square p-4"
+                  >
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      scrolling="no" 
+                      frameBorder="no" 
+                      allow="autoplay" 
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1953703903&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                </CarouselItem>
+
+                {/* EETSWA Track */}
+                <CarouselItem className="basis-full">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
                     className="portfolio-card aspect-square p-4"
                   >
                     <iframe 
