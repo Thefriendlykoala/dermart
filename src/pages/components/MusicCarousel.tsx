@@ -1,82 +1,75 @@
 import { motion } from "framer-motion";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Play, Pause } from "lucide-react";
 import { useAudio } from "@/contexts/AudioContext";
+import { tracks } from "@/data/musicData";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-interface Track {
-  id: string;
-  title: string;
-  audioUrl: string;
-}
+export const MusicCarousel = ({ category }: { category: string }) => {
+  const { setTrack, currentTrack, isPlaying, togglePlay } = useAudio();
 
-const tracks: Record<string, Track[]> = {
-  EDM: [
-    {
-      id: "1",
-      title: "Take It Easy Man",
-      audioUrl: "/audio/take-it-easy-man.mp3" // Add your audio file here
-    },
-    {
-      id: "2",
-      title: "Eetswa",
-      audioUrl: "/audio/eetswa.mp3" // Add your audio file here
-    }
-  ],
-  Rap: [
-    {
-      id: "3",
-      title: "Lanky LC - Rap Beats",
-      audioUrl: "/audio/lanky-lc.mp3" // Add your audio file here
-    },
-    {
-      id: "4",
-      title: "FATTYFROMTHE4",
-      audioUrl: "/audio/fattyfromthe4.mp3" // Add your audio file here
-    }
-  ],
-  Remixes: []
-};
+  const categoryTracks = tracks.filter(track => track.category === category);
 
-export const MusicCarousel = ({ category }: { category: keyof typeof tracks }) => {
-  const { setTrack } = useAudio();
-
-  const handleTrackClick = (track: Track) => {
-    setTrack(track.audioUrl);
+  const handleTrackClick = (audioUrl: string) => {
+    setTrack(audioUrl);
   };
 
   return (
-    <Carousel
-      opts={{
-        align: "center",
-        loop: true,
-      }}
-      className="w-full max-w-2xl mx-auto"
-    >
-      <CarouselContent>
-        {tracks[category].map((track) => (
-          <CarouselItem key={track.id} className="basis-full">
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="portfolio-card aspect-square p-4 cursor-pointer"
-              onClick={() => handleTrackClick(track)}
-            >
-              <div className="w-full h-full flex flex-col items-center justify-center">
-                <h3 className="text-xl font-bold mb-4 text-center">{track.title}</h3>
-                <p className="text-sm text-gray-400">Click to play</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+      {categoryTracks.map((track) => (
+        <motion.div
+          key={track.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card className="bg-dermart-gray/20 border-white/5 hover:bg-dermart-gray/30 transition-colors">
+            <CardHeader>
+              <div className="relative aspect-square overflow-hidden rounded-lg mb-4">
+                <img
+                  src={track.albumArt}
+                  alt={track.title}
+                  className="object-cover w-full h-full"
+                />
               </div>
-            </motion.div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious className="hidden md:flex -left-12 bg-dermart-gray/20 hover:bg-dermart-gray/40 border-white/10" />
-      <CarouselNext className="hidden md:flex -right-12 bg-dermart-gray/20 hover:bg-dermart-gray/40 border-white/10" />
-    </Carousel>
+              <CardTitle className="text-xl font-bold text-white">{track.title}</CardTitle>
+              <CardDescription className="text-white/60">
+                {track.description}
+              </CardDescription>
+            </CardHeader>
+            <CardFooter>
+              <button
+                onClick={() => {
+                  if (currentTrack === track.audioUrl) {
+                    togglePlay();
+                  } else {
+                    handleTrackClick(track.audioUrl);
+                  }
+                }}
+                className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white py-2 px-4 rounded-md transition-colors"
+              >
+                {currentTrack === track.audioUrl && isPlaying ? (
+                  <>
+                    <Pause className="w-4 h-4" />
+                    Pause
+                  </>
+                ) : (
+                  <>
+                    <Play className="w-4 h-4" />
+                    Play Track
+                  </>
+                )}
+              </button>
+            </CardFooter>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
   );
 };
