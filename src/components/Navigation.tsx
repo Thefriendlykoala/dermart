@@ -7,12 +7,21 @@ const Navigation = () => {
   const location = useLocation();
 
   const links = [
-    { path: '/', label: 'dermHOME' },
-    { path: '/art', label: 'dermARTIST' },
-    { path: '/music', label: 'dermPRODUCER' },
-    { path: '/web', label: 'dermHACKER' },
-    { path: '/contact', label: 'dermFEATURED' },
+    { path: '/', label: 'derm[HOME]', display: 'dermHOME' },
+    { path: '/art', label: 'derm[ARTIST]', display: 'dermARTIST' },
+    { path: '/music', label: 'derm[PRODUCER]', display: 'dermPRODUCER' },
+    { path: '/web', label: 'derm[HACKER]', display: 'dermHACKER' },
+    { path: '/contact', label: 'derm[FEATURED]', display: 'dermFEATURED' },
   ];
+
+  const renderLabel = (label: string) => {
+    return label.split(/(\[.*?\])/).map((part, index) => {
+      if (part.startsWith('[') && part.endsWith(']')) {
+        return <span key={index} className="text-primary">{part.slice(1, -1)}</span>;
+      }
+      return <span key={index}>{part}</span>;
+    });
+  };
 
   return (
     <nav className="fixed w-full z-50 px-6 py-4 bg-dermart-black/80 backdrop-blur-md border-b border-white/5">
@@ -31,7 +40,7 @@ const Navigation = () => {
                 location.pathname === link.path ? 'text-primary' : ''
               }`}
             >
-              {link.label}
+              {renderLabel(link.label)}
             </Link>
           ))}
         </div>
@@ -55,7 +64,7 @@ const Navigation = () => {
                   className="nav-link py-4"
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.label}
+                  {renderLabel(link.label)}
                 </Link>
               ))}
             </div>

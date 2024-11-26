@@ -3,6 +3,14 @@ import { PencilRuler, AudioWaveform, Monitor, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const renderTitle = (text: string) => {
+    return text.split('').map((char, index) => (
+      <span key={index} className={char === char.toUpperCase() ? 'text-primary' : ''}>
+        {char}
+      </span>
+    ));
+  };
+
   return (
     <div className="container mx-auto px-6 py-20">
       <motion.div
@@ -11,8 +19,8 @@ const Home = () => {
         transition={{ duration: 0.6 }}
         className="text-center"
       >
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-dermart-white to-dermart-white/80">
-          dermHOME
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text">
+          {renderTitle('dermHOME')}
         </h1>
         <p className="text-xl md:text-2xl text-dermart-white/70 max-w-2xl mx-auto">
           Exploring the intersection of art, sound, and technology
@@ -37,7 +45,9 @@ const Home = () => {
             className="portfolio-card p-8 text-center group"
           >
             <motion.div whileHover={{ y: -5 }}>
-              <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{item.title}</h2>
+              <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                {renderTitle(item.title)}
+              </h2>
               <div className="h-40 bg-dermart-gray/20 rounded-lg mb-4 group-hover:bg-dermart-gray/30 transition-colors flex items-center justify-center">
                 <item.Icon className="w-16 h-16 text-primary group-hover:text-primary/80 transition-colors" />
               </div>
