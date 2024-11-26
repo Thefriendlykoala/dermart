@@ -13,17 +13,6 @@ const Art = () => {
   const artworks: ArtworkCategories = {
     "Album Covers": [
       {
-        id: "1",
-        title: "Typography Study: Urban Brand",
-        imageUrl: "/lovable-uploads/a06681f7-70dd-4336-89e9-6bff759e13e6.png",
-        analysis: {
-          composition: "Minimalist black typography on white background, utilizing negative space with an oval frame that creates dynamic tension.",
-          technique: "Vector-based design with clean lines and purposeful asymmetry in the signature style.",
-          concept: "A contemporary take on personal branding, merging street culture aesthetics with refined typography.",
-          interpretation: "The piece speaks to the intersection of street credibility and commercial design, with the oval containing the signature suggesting both protection and prominence."
-        }
-      },
-      {
         id: "2",
         title: "VIRUS - Urban Commentary",
         imageUrl: "/lovable-uploads/5ff68faf-c890-493f-9509-3b66f9124a53.png",
@@ -65,6 +54,19 @@ const Art = () => {
           technique: "Digital collage with glitch effects, monochromatic green palette with high contrast elements.",
           concept: "Merging of gaming aesthetics with trap music culture, exploring digital degradation.",
           interpretation: "Commentary on the intersection of digital culture and music, with intentional corruption suggesting artistic rebellion."
+        }
+      }
+    ],
+    "Logos": [
+      {
+        id: "1",
+        title: "Typography Study: Urban Brand",
+        imageUrl: "/lovable-uploads/a06681f7-70dd-4336-89e9-6bff759e13e6.png",
+        analysis: {
+          composition: "Minimalist black typography on white background, utilizing negative space with an oval frame that creates dynamic tension.",
+          technique: "Vector-based design with clean lines and purposeful asymmetry in the signature style.",
+          concept: "A contemporary take on personal branding, merging street culture aesthetics with refined typography.",
+          interpretation: "The piece speaks to the intersection of street credibility and commercial design, with the oval containing the signature suggesting both protection and prominence."
         }
       }
     ],
@@ -159,6 +161,7 @@ const Art = () => {
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5">
             <TabsTrigger value="All">All Art</TabsTrigger>
             <TabsTrigger value="Album Covers">Album Covers</TabsTrigger>
+            <TabsTrigger value="Logos">Logos</TabsTrigger>
             <TabsTrigger value="Graffiti">Graffiti</TabsTrigger>
           </TabsList>
 
