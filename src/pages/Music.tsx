@@ -50,14 +50,29 @@ const Music = () => {
             <TabsContent key={genre} value={genre}>
               {genre === "Rap" && (
                 <div className="mb-8">
-                  <div className="portfolio-card p-4">
+                  <div className="portfolio-card p-4 bg-black">
                     <iframe 
                       width="100%" 
                       height="450" 
                       scrolling="no" 
                       frameBorder="no" 
                       allow="autoplay" 
-                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913529643&color=%23c01818&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913529643&color=%23FF0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                      className="rounded-lg"
+                    />
+                  </div>
+                </div>
+              )}
+              {genre === "EDM" && (
+                <div className="mb-8">
+                  <div className="portfolio-card p-4 bg-black">
+                    <iframe 
+                      width="100%" 
+                      height="600" 
+                      scrolling="no" 
+                      frameBorder="no" 
+                      allow="autoplay" 
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913526727&color=%23FF0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
                       className="rounded-lg"
                     />
                   </div>
