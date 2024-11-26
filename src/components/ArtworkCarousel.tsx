@@ -20,7 +20,11 @@ const ArtworkCarousel = ({ artworks, onArtworkClick }: ArtworkCarouselProps) => 
         align: "start",
         loop: true,
         skipSnaps: false,
-        slidesToScroll: 3
+        slidesToScroll: 1,
+        dragFree: false,
+        containScroll: "trimSnaps",
+        duration: 50, // Slower animation duration
+        dragThreshold: 20, // Higher threshold for touch drag
       }}
       className="w-full"
     >
