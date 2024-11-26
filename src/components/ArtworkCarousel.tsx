@@ -17,14 +17,31 @@ const ArtworkCarousel = ({ artworks, onArtworkClick }: ArtworkCarouselProps) => 
   return (
     <Carousel
       opts={{
+        // Makes slides start from the beginning of the container instead of center
         align: "start",
+        
+        // When reaching the end, loop back to the start
         loop: true,
+        
+        // Don't skip any slides when scrolling
         skipSnaps: false,
+        
+        // Move only 1 slide at a time
         slidesToScroll: 1,
+        
+        // Prevents free-form dragging - slides will always snap to position
         dragFree: false,
+        
+        // Keeps slides within the container bounds
         containScroll: "trimSnaps",
-        duration: 50, // Slower animation duration
-        dragThreshold: 20, // Higher threshold for touch drag
+        
+        // Makes the sliding animation slower (50ms) for better touch control
+        // Lower number = faster animation
+        duration: 50,
+        
+        // Makes it harder to accidentally trigger a slide on touch
+        // Higher number = need to drag further to trigger slide
+        dragThreshold: 20,
       }}
       className="w-full"
     >
