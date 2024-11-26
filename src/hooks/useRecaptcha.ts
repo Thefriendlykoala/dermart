@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
+import type { RecaptchaResponse } from '@/types/recaptcha';
 
 export const useRecaptcha = () => {
   const { toast } = useToast();
