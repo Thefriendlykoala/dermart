@@ -35,6 +35,7 @@ const Art = () => {
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5">
             <TabsTrigger value="All">All Art</TabsTrigger>
             <TabsTrigger value="Album Covers">Album Covers</TabsTrigger>
+            <TabsTrigger value="Digital Art">Digital Art</TabsTrigger>
             <TabsTrigger value="Logos">Logos</TabsTrigger>
             <TabsTrigger value="Graffiti">Graffiti</TabsTrigger>
           </TabsList>

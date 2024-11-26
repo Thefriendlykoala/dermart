@@ -1,6 +1,30 @@
 import { ArtworkCategories } from '@/types/artwork';
 
 export const artworkData: ArtworkCategories = {
+  "Album Covers": [
+    {
+      id: "album-1",
+      title: "Neon Dreams - Album Art",
+      imageUrl: "/lovable-uploads/5e662426-bb61-472d-991d-a27557df300c.png",
+      analysis: {
+        composition: "Dynamic neon typography with urban elements",
+        technique: "Digital design with neon effects and gradient overlays",
+        concept: "Modern electronic music aesthetic with street art influence",
+        interpretation: "The design captures the energetic nature of electronic music through vibrant neon elements"
+      }
+    },
+    {
+      id: "album-2",
+      title: "Digital Canvas - Album Art",
+      imageUrl: "/lovable-uploads/4564cd23-6788-48d3-beb2-fdfc88e437c9.png",
+      analysis: {
+        composition: "Abstract digital patterns with geometric elements",
+        technique: "Digital art with layered effects and color manipulation",
+        concept: "Fusion of digital art and music visualization",
+        interpretation: "Represents the intersection of visual art and digital music production"
+      }
+    }
+  ],
   "Digital Art": [
     {
       id: "digital-1",
