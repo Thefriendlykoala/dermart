@@ -10,9 +10,8 @@ import { useAudio } from "@/contexts/AudioContext";
 
 interface Track {
   id: string;
-  url: string;
-  embedUrl: string;
   title: string;
+  audioUrl: string;
 }
 
 const tracks: Record<string, Track[]> = {
@@ -20,28 +19,24 @@ const tracks: Record<string, Track[]> = {
     {
       id: "1",
       title: "Take It Easy Man",
-      url: "https://soundcloud.com/dermart/take-it-easy-man",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1953703903"
+      audioUrl: "/audio/take-it-easy-man.mp3" // Add your audio file here
     },
     {
       id: "2",
       title: "Eetswa",
-      url: "https://soundcloud.com/dermart/eetswa",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1876708866"
+      audioUrl: "/audio/eetswa.mp3" // Add your audio file here
     }
   ],
   Rap: [
     {
       id: "3",
       title: "Lanky LC - Rap Beats",
-      url: "https://soundcloud.com/dermart/sets/rap-beats",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913529643"
+      audioUrl: "/audio/lanky-lc.mp3" // Add your audio file here
     },
     {
       id: "4",
       title: "FATTYFROMTHE4",
-      url: "https://soundcloud.com/dermart/sets/fattyfromthe4",
-      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1913529643"
+      audioUrl: "/audio/fattyfromthe4.mp3" // Add your audio file here
     }
   ],
   Remixes: []
@@ -51,7 +46,7 @@ export const MusicCarousel = ({ category }: { category: keyof typeof tracks }) =
   const { setTrack } = useAudio();
 
   const handleTrackClick = (track: Track) => {
-    setTrack(track.url);
+    setTrack(track.audioUrl);
   };
 
   return (

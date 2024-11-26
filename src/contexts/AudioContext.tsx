@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
-import type { SoundCloudWidget } from '../types/soundcloud';
 
 interface AudioContextType {
   isPlaying: boolean;
@@ -24,83 +23,87 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [trackTitle, setTrackTitle] = useState('');
-  const widgetRef = useRef<SoundCloudWidget | null>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://w.soundcloud.com/player/api.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      if (iframeRef.current) {
-        widgetRef.current = window.SC.Widget(iframeRef.current);
-        widgetRef.current.bind('play', () => setIsPlaying(true));
-        widgetRef.current.bind('pause', () => setIsPlaying(false));
-        widgetRef.current.bind('finish', () => setIsPlaying(false));
-        
-        // Add new event bindings for track info
-        widgetRef.current.bind('playProgress', (data: { currentPosition: number }) => {
-          setProgress(data.currentPosition);
-        });
-        
-        widgetRef.current.bind('ready', () => {
-          if (widgetRef.current) {
-            widgetRef.current.getDuration((durationMs: number) => {
-              setDuration(durationMs);
-            });
-            widgetRef.current.getCurrentSound((sound: any) => {
-              setTrackTitle(sound.title);
-            });
-          }
-        });
-      }
-    };
+    audioRef.current = new Audio();
+    audioRef.current.volume = volume;
 
     return () => {
-      document.body.removeChild(script);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
     };
   }, []);
 
-  const togglePlay = () => {
-    if (!widgetRef.current) return;
-    if (isPlaying) {
-      widgetRef.current.pause();
-    } else {
-      widgetRef.current.play();
+  useEffect(() => {
+    if (audioRef.current) {
+      const audio = audioRef.current;
+
+      const updateProgress = () => {
+        setProgress(audio.currentTime * 1000);
+      };
+
+      const handleEnded = () => {
+        setIsPlaying(false);
+        setProgress(0);
+      };
+
+      const handleLoadedMetadata = () => {
+        setDuration(audio.duration * 1000);
+      };
+
+      audio.addEventListener('timeupdate', updateProgress);
+      audio.addEventListener('ended', handleEnded);
+      audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+      return () => {
+        audio.removeEventListener('timeupdate', updateProgress);
+        audio.removeEventListener('ended', handleEnded);
+        audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      };
     }
+  }, [currentTrack]);
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
   };
 
   const handleVolumeChange = (newVolume: number) => {
-    if (!widgetRef.current) return;
-    widgetRef.current.setVolume(newVolume * 100);
+    if (!audioRef.current) return;
+    audioRef.current.volume = newVolume;
     setVolume(newVolume);
   };
 
   const handleTrackChange = (track: string) => {
-    if (!widgetRef.current) return;
-    widgetRef.current.load(track, {
-      auto_play: isPlaying,
-      show_artwork: true,
-      show_user: false,
-      show_playcount: false,
-      show_comments: false,
-      buying: false,
-      sharing: false,
-      download: false,
-    });
+    if (!audioRef.current) return;
+    
+    const wasPlaying = isPlaying;
+    audioRef.current.pause();
+    audioRef.current.src = track;
     setCurrentTrack(track);
+    setTrackTitle(track.split('/').pop()?.replace('.mp3', '') || '');
+    
+    if (wasPlaying) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
   };
 
   const skipNext = () => {
-    if (!widgetRef.current) return;
-    widgetRef.current.next();
+    // Implement skip logic based on your tracks array
   };
 
   const skipPrevious = () => {
-    if (!widgetRef.current) return;
-    widgetRef.current.prev();
+    // Implement previous logic based on your tracks array
   };
 
   return (
@@ -119,16 +122,6 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         skipPrevious,
       }}
     >
-      <iframe
-        ref={iframeRef}
-        width="0"
-        height="0"
-        scrolling="no"
-        frameBorder="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293"
-        style={{ display: 'none' }}
-      />
       {children}
     </AudioContext.Provider>
   );
