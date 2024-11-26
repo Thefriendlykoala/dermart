@@ -47,7 +47,7 @@ const Art = () => {
           transition={{ duration: 0.3 }}
           className="text-4xl md:text-6xl font-bold mb-12"
         >
-          {getPageTitle()}
+          dermARTIST
         </motion.h1>
         
         <Tabs 
