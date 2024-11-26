@@ -5,6 +5,9 @@ interface AudioContextType {
   isPlaying: boolean;
   currentTrack: string;
   volume: number;
+  progress: number;
+  duration: number;
+  trackTitle: string;
   togglePlay: () => void;
   setVolume: (volume: number) => void;
   setTrack: (track: string) => void;
@@ -18,6 +21,9 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState('');
   const [volume, setVolume] = useState(0.5);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [trackTitle, setTrackTitle] = useState('');
   const widgetRef = useRef<SoundCloudWidget | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -33,6 +39,22 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         widgetRef.current.bind('play', () => setIsPlaying(true));
         widgetRef.current.bind('pause', () => setIsPlaying(false));
         widgetRef.current.bind('finish', () => setIsPlaying(false));
+        
+        // Add new event bindings for track info
+        widgetRef.current.bind('playProgress', (data: { currentPosition: number }) => {
+          setProgress(data.currentPosition);
+        });
+        
+        widgetRef.current.bind('ready', () => {
+          if (widgetRef.current) {
+            widgetRef.current.getDuration((durationMs: number) => {
+              setDuration(durationMs);
+            });
+            widgetRef.current.getCurrentSound((sound: any) => {
+              setTrackTitle(sound.title);
+            });
+          }
+        });
       }
     };
 
@@ -87,6 +109,9 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         isPlaying,
         currentTrack,
         volume,
+        progress,
+        duration,
+        trackTitle,
         togglePlay,
         setVolume: handleVolumeChange,
         setTrack: handleTrackChange,
