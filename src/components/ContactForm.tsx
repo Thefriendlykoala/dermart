@@ -1,17 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import { parsePhoneNumber, isValidPhoneNumber } from 'libphonenumber-js';
-import { useEffect } from "react";
 
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (cb: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-    };
-  }
+interface RecaptchaResponse {
+  success: boolean;
+  challenge_ts: string;
+  hostname: string;
+  'error-codes'?: string[];
 }
 
 const ContactForm = () => {
@@ -22,7 +19,6 @@ const ContactForm = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Load reCAPTCHA v3
     const script = document.createElement('script');
     script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
     script.async = true;
@@ -46,10 +42,45 @@ const ContactForm = () => {
     }
   };
 
+  const verifyRecaptchaToken = async (token: string): Promise<boolean> => {
+    try {
+      const response = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token }),
+      });
+
+      const data: RecaptchaResponse = await response.json();
+
+      if (!data.success) {
+        const errorMessage = data['error-codes']?.join(', ') || 'Verification failed';
+        toast({
+          title: "Verification Failed",
+          description: `reCAPTCHA verification failed: ${errorMessage}`,
+          variant: "destructive",
+        });
+        return false;
+      }
+
+      // For v3, you might want to check the score threshold
+      return true;
+    } catch (error) {
+      console.error('reCAPTCHA verification error:', error);
+      toast({
+        title: "Verification Error",
+        description: "Failed to verify reCAPTCHA response. Please try again.",
+        variant: "destructive",
+      });
+      return false;
+    }
+  };
+
   const executeRecaptcha = async () => {
     try {
       const token = await window.grecaptcha.execute(
-        import.meta.env.VITE_RECAPTCHA_SITE_KEY || 'your-recaptcha-site-key',
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY,
         { action: 'submit_contact_form' }
       );
       return token;
@@ -69,9 +100,15 @@ const ContactForm = () => {
       if (!token) {
         toast({
           title: "Verification failed",
-          description: "Please try again later",
+          description: "Could not generate reCAPTCHA token",
           variant: "destructive",
         });
+        return;
+      }
+
+      const isVerified = await verifyRecaptchaToken(token);
+      
+      if (!isVerified) {
         return;
       }
 
@@ -94,10 +131,8 @@ const ContactForm = () => {
         phone: phone,
         message: formData.get("message"),
         attachment: file,
-        recaptchaToken: token
       };
 
-      // Simulated success for demo
       toast({
         title: "Message sent!",
         description: "Thank you for your message. We'll get back to you soon.",
