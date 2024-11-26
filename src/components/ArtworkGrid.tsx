@@ -18,7 +18,7 @@ const ArtworkGrid = ({ artworks, onArtworkClick }: ArtworkGridProps) => {
           className="cursor-pointer"
           onClick={() => onArtworkClick(artwork)}
         >
-          <div className="portfolio-card group relative overflow-hidden aspect-square">
+          <div className={`portfolio-card group relative overflow-hidden aspect-square ${artwork.title.includes('Poser Dude') ? 'bg-white' : ''}`}>
             <img
               src={artwork.imageUrl}
               alt={artwork.title}
