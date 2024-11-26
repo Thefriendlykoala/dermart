@@ -24,19 +24,19 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 px-6 py-4 bg-dermart-black/80 backdrop-blur-md border-b border-white/5">
+    <nav className="fixed w-full z-50 px-4 sm:px-6 py-4 bg-dermart-black/80 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-dermart-white group">
+        <Link to="/" className="text-xl sm:text-2xl font-bold text-dermart-white group">
           derm<span className="text-primary">ART</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-4 lg:space-x-8">
           {links.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`nav-link ${
+              className={`nav-link text-sm lg:text-base ${
                 location.pathname === link.path ? 'text-primary' : ''
               }`}
             >
@@ -45,23 +45,26 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-dermart-white/90 hover:text-primary transition-colors"
+          className="md:hidden text-dermart-white/90 hover:text-primary transition-colors p-2"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 w-full bg-dermart-black/95 backdrop-blur-lg border-b border-white/5 md:hidden">
-            <div className="flex flex-col items-center py-4">
+          <div className="absolute top-full left-0 w-full bg-dermart-black/95 backdrop-blur-lg border-b border-white/5 md:hidden animate-fade-in">
+            <div className="flex flex-col items-center py-4 space-y-4">
               {links.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="nav-link py-4"
+                  className={`nav-link py-2 text-base ${
+                    location.pathname === link.path ? 'text-primary' : ''
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {renderLabel(link.label)}
