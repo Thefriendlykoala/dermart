@@ -89,11 +89,11 @@ const Music = () => {
             >
               <iframe 
                 width="100%" 
-                height="166" 
+                height="300" 
                 scrolling="no" 
                 frameBorder="no" 
                 allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1953703903&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1876708866&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
                 className="rounded-lg"
               />
             </motion.div>
