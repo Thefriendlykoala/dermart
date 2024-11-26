@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { PencilRuler, AudioWaveform, Monitor } from 'lucide-react';
+import { PencilRuler, AudioWaveform, Monitor, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -22,25 +23,27 @@ const Home = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
+        className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
       >
         {[
-          { title: 'Art/Discovery', path: '/art', Icon: PencilRuler },
-          { title: 'Music/Sounds', path: '/music', Icon: AudioWaveform },
-          { title: 'Web/Programs', path: '/web', Icon: Monitor },
+          { title: 'dermARTIST', path: '/art', Icon: PencilRuler, description: 'Digital Art & Design' },
+          { title: 'dermPRODUCER', path: '/music', Icon: AudioWaveform, description: 'Music Production' },
+          { title: 'dermHACKER', path: '/web', Icon: Monitor, description: 'Web Development' },
+          { title: 'dermFEATURED', path: '/contact', Icon: Star, description: 'Featured Projects' },
         ].map((item) => (
-          <motion.a
+          <Link
             key={item.path}
-            href={item.path}
+            to={item.path}
             className="portfolio-card p-8 text-center group"
-            whileHover={{ y: -5 }}
           >
-            <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{item.title}</h2>
-            <div className="h-40 bg-dermart-gray/20 rounded-lg mb-4 group-hover:bg-dermart-gray/30 transition-colors flex items-center justify-center">
-              <item.Icon className="w-16 h-16 text-primary group-hover:text-primary/80 transition-colors" />
-            </div>
-            <p className="text-dermart-white/60 group-hover:text-primary/80 transition-colors">Explore Projects →</p>
-          </motion.a>
+            <motion.div whileHover={{ y: -5 }}>
+              <h2 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{item.title}</h2>
+              <div className="h-40 bg-dermart-gray/20 rounded-lg mb-4 group-hover:bg-dermart-gray/30 transition-colors flex items-center justify-center">
+                <item.Icon className="w-16 h-16 text-primary group-hover:text-primary/80 transition-colors" />
+              </div>
+              <p className="text-dermart-white/60 group-hover:text-primary/80 transition-colors">{item.description} →</p>
+            </motion.div>
+          </Link>
         ))}
       </motion.div>
     </div>
