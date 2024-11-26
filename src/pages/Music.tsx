@@ -10,17 +10,17 @@ interface Song {
 }
 
 const songs: Song[] = [
-  { title: "Neon Dreams", artist: "DermArt", duration: "3:45", genre: "Electronic" },
-  { title: "Digital Canvas", artist: "DermArt", duration: "4:20", genre: "Electronic" },
-  { title: "Ambient Space", artist: "DermArt", duration: "5:15", genre: "Ambient" },
-  { title: "Urban Pulse", artist: "DermArt", duration: "3:30", genre: "Electronic" },
-  { title: "Nature's Echo", artist: "DermArt", duration: "6:10", genre: "Ambient" },
-  { title: "Cyber Symphony", artist: "DermArt", duration: "4:45", genre: "Electronic" },
-  { title: "Peaceful Waters", artist: "DermArt", duration: "5:30", genre: "Ambient" },
-  { title: "Tech Horizon", artist: "DermArt", duration: "4:15", genre: "Electronic" },
+  { title: "Neon Dreams", artist: "DermArt", duration: "3:45", genre: "EDM" },
+  { title: "Digital Canvas", artist: "DermArt", duration: "4:20", genre: "EDM" },
+  { title: "Ambient Space", artist: "DermArt", duration: "5:15", genre: "Instrumentals" },
+  { title: "Urban Pulse", artist: "DermArt", duration: "3:30", genre: "Rap" },
+  { title: "Nature's Echo", artist: "DermArt", duration: "6:10", genre: "Instrumentals" },
+  { title: "Cyber Symphony", artist: "DermArt", duration: "4:45", genre: "EDM" },
+  { title: "Peaceful Waters", artist: "DermArt", duration: "5:30", genre: "Instrumentals" },
+  { title: "Tech Horizon", artist: "DermArt", duration: "4:15", genre: "Rap" },
 ];
 
-const genres = Array.from(new Set(songs.map(song => song.genre)));
+const genres = ["Rap", "EDM", "Instrumentals"];
 
 const Music = () => {
   return (
