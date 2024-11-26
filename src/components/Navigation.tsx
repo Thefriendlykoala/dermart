@@ -8,10 +8,10 @@ const Navigation = () => {
 
   const links = [
     { path: '/', label: 'Home' },
-    { path: '/art', label: 'Art/Discovery' },
-    { path: '/music', label: 'Music/Sounds' },
-    { path: '/web', label: 'Web/Programs' },
-    { path: '/contact', label: 'Reach Out' },
+    { path: '/art', label: 'dermARTIST' },
+    { path: '/music', label: 'dermPRODUCER' },
+    { path: '/web', label: 'dermHACKER' },
+    { path: '/contact', label: 'dermFeatured' },
   ];
 
   return (
