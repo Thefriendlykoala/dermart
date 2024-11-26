@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ContactForm from '@/components/ContactForm';
 
 const Contact = () => {
   const renderTitle = (text: string) => {
@@ -21,21 +22,7 @@ const Contact = () => {
           {renderTitle('dermFEATURED')}
         </h1>
         <p className="text-lg text-dermart-white/70 mb-6 text-center">Get in touch with us!</p>
-        <form className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-dermart-white">Name</label>
-            <input type="text" id="name" className="mt-1 block w-full p-2 border border-dermart-gray rounded-md" required />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-dermart-white">Email</label>
-            <input type="email" id="email" className="mt-1 block w-full p-2 border border-dermart-gray rounded-md" required />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-dermart-white">Message</label>
-            <textarea id="message" rows={4} className="mt-1 block w-full p-2 border border-dermart-gray rounded-md" required></textarea>
-          </div>
-          <button type="submit" className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary/80 transition duration-300">Send Message</button>
-        </form>
+        <ContactForm />
       </motion.div>
     </div>
   );
