@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Music = () => {
   const renderTitle = (text: string) => {
@@ -30,107 +37,117 @@ const Music = () => {
           </TabsList>
 
           <TabsContent value="EDM" className="space-y-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="portfolio-card p-4"
+            <Carousel
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+              className="w-full max-w-2xl mx-auto"
             >
-              <iframe 
-                width="100%" 
-                height="166" 
-                scrolling="no" 
-                frameBorder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1876708866&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                className="rounded-lg"
-              />
-            </motion.div>
+              <CarouselContent>
+                {/* EETSWA Track */}
+                <CarouselItem className="basis-full">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="portfolio-card aspect-square p-4"
+                  >
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      scrolling="no" 
+                      frameBorder="no" 
+                      allow="autoplay" 
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1876708866&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                </CarouselItem>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="portfolio-card p-4"
-            >
-              <iframe 
-                width="100%" 
-                height="300" 
-                scrolling="no" 
-                frameBorder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1407833932&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                className="rounded-lg"
-              />
-            </motion.div>
+                {/* Track 2 */}
+                <CarouselItem className="basis-full">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="portfolio-card aspect-square p-4"
+                  >
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      scrolling="no" 
+                      frameBorder="no" 
+                      allow="autoplay" 
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1407833932&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                </CarouselItem>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="portfolio-card p-4"
-            >
-              <iframe 
-                width="100%" 
-                height="300" 
-                scrolling="no" 
-                frameBorder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1925441912&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                className="rounded-lg"
-              />
-            </motion.div>
+                {/* Track 3 */}
+                <CarouselItem className="basis-full">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="portfolio-card aspect-square p-4"
+                  >
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      scrolling="no" 
+                      frameBorder="no" 
+                      allow="autoplay" 
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1925441912&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                </CarouselItem>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="portfolio-card p-4"
-            >
-              <iframe 
-                width="100%" 
-                height="300" 
-                scrolling="no" 
-                frameBorder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1876708866&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                className="rounded-lg"
-              />
-            </motion.div>
+                {/* Track 4 */}
+                <CarouselItem className="basis-full">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="portfolio-card aspect-square p-4"
+                  >
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      scrolling="no" 
+                      frameBorder="no" 
+                      allow="autoplay" 
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1925455823&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                </CarouselItem>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="portfolio-card p-4"
-            >
-              <iframe 
-                width="100%" 
-                height="300" 
-                scrolling="no" 
-                frameBorder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1925455823&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                className="rounded-lg"
-              />
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="portfolio-card p-4"
-            >
-              <iframe 
-                width="100%" 
-                height="300" 
-                scrolling="no" 
-                frameBorder="no" 
-                allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/586007346&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                className="rounded-lg"
-              />
-            </motion.div>
+                {/* Track 5 */}
+                <CarouselItem className="basis-full">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="portfolio-card aspect-square p-4"
+                  >
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      scrolling="no" 
+                      frameBorder="no" 
+                      allow="autoplay" 
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/586007346&color=%23ff0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-12 bg-dermart-gray/20 hover:bg-dermart-gray/40 border-white/10" />
+              <CarouselNext className="hidden md:flex -right-12 bg-dermart-gray/20 hover:bg-dermart-gray/40 border-white/10" />
+            </Carousel>
           </TabsContent>
 
           <TabsContent value="Rap" className="space-y-6">
