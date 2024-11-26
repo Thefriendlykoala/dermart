@@ -53,7 +53,7 @@ export const artworkData: ArtworkCategories = {
       title: "Poser Dude - Urban Style",
       imageUrl: "/lovable-uploads/7129c1de-1f73-41f4-95a8-2cb73180a67a.png",
       analysis: {
-        composition: "Dynamic 3D effect with a black base and light blue highlights, featuring a stylized 'LA' design with a cap silhouette.",
+        composition: "Dynamic 3D effect with a white background and light blue highlights, featuring a stylized 'LA' design with a cap silhouette.",
         technique: "Vector illustration with gradient effects and bold outlines creating depth and dimension.",
         concept: "Urban streetwear aesthetic merging Los Angeles culture with contemporary design.",
         interpretation: "The logo represents street culture through sophisticated typography, with the cap element adding a signature urban touch."
@@ -61,24 +61,24 @@ export const artworkData: ArtworkCategories = {
     },
     {
       id: "logo-2",
-      title: "dermART - Artistic Typography",
-      imageUrl: "/lovable-uploads/4564cd23-6788-48d3-beb2-fdfc88e437c9.png",
+      title: "Stolen - Artistic Typography",
+      imageUrl: "/lovable-uploads/7872f6f3-dace-435f-9140-5e95e0a23e5c.png",
       analysis: {
-        composition: "Sharp, angular typography in black with dynamic strokes and precise geometric cuts.",
-        technique: "Hand-drawn vector artwork with emphasis on fluid letterforms and sharp angles.",
-        concept: "Fusion of graffiti aesthetics with professional design principles.",
-        interpretation: "The design balances artistic expression with readability, creating a strong brand identity for creative works."
+        composition: "Multi-layered design with vibrant colors (cyan, orange, yellow, red, pink) creating a dynamic 3D effect.",
+        technique: "Vector-based graffiti style with clean edges and bold shadows, featuring a chromatic gradient progression.",
+        concept: "Street art aesthetics translated into a modern, energetic logo design.",
+        interpretation: "The design captures urban energy through its bold color choices and dynamic layering, creating movement and depth."
       }
     },
     {
       id: "logo-3",
-      title: "Stolen - Minimalist Expression",
-      imageUrl: "/lovable-uploads/5e662426-bb61-472d-991d-a27557df300c.png",
+      title: "Whats Good - Bold Typography",
+      imageUrl: "/lovable-uploads/fa0387af-7a7c-4a4b-80fd-f85add6bf8bd.png",
       analysis: {
-        composition: "Soft mint green palette with subtle white highlights, featuring flowing graffiti-style letterforms.",
-        technique: "Digital illustration with gradient overlay and smooth curves creating an ethereal effect.",
-        concept: "Street art aesthetics translated into a gentle, approachable design.",
-        interpretation: "The logo subverts traditional graffiti styling by using soft colors and flowing forms, creating an unexpected visual experience."
+        composition: "Bold, three-dimensional typography in yellow with strong black outlines and shadow effects.",
+        technique: "Vector design with clean edges and dramatic shadow work creating a powerful 3D effect.",
+        concept: "Urban street culture expressed through bold, confident typography.",
+        interpretation: "The logo conveys energy and positivity through its dynamic typography and bold color choice."
       }
     }
   ],
