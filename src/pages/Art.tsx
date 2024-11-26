@@ -17,6 +17,21 @@ const Art = () => {
     return artworkData[currentCategory] || [];
   };
 
+  const getPageTitle = () => {
+    switch (currentCategory) {
+      case "All":
+        return "Art & Discovery";
+      case "Album Covers":
+        return "Album Cover Designs";
+      case "Logos":
+        return "Logo Collection";
+      case "Graffiti":
+        return "Street Art Gallery";
+      default:
+        return "Art & Discovery";
+    }
+  };
+
   return (
     <div className="container mx-auto px-6">
       <motion.div
@@ -25,7 +40,15 @@ const Art = () => {
         transition={{ duration: 0.6 }}
         className="max-w-6xl mx-auto text-center"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-12">Art & Discovery</h1>
+        <motion.h1 
+          key={currentCategory}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-4xl md:text-6xl font-bold mb-12"
+        >
+          {getPageTitle()}
+        </motion.h1>
         
         <Tabs 
           defaultValue="All" 
