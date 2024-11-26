@@ -8,6 +8,8 @@ export interface SoundCloudWidget {
   seekTo: (milliseconds: number) => void;
   setVolume: (volume: number) => void;
   getVolume: (callback: (volume: number) => void) => void;
+  next: () => void;
+  prev: () => void;
 }
 
 declare global {

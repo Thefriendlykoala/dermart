@@ -8,6 +8,8 @@ interface AudioContextType {
   togglePlay: () => void;
   setVolume: (volume: number) => void;
   setTrack: (track: string) => void;
+  skipNext: () => void;
+  skipPrevious: () => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -69,8 +71,18 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     setCurrentTrack(track);
   };
 
+  const skipNext = () => {
+    if (!widgetRef.current) return;
+    widgetRef.current.next();
+  };
+
+  const skipPrevious = () => {
+    if (!widgetRef.current) return;
+    widgetRef.current.prev();
+  };
+
   return (
-    <AudioContext.Provider 
+    <AudioContext.Provider
       value={{
         isPlaying,
         currentTrack,
@@ -78,6 +90,8 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         togglePlay,
         setVolume: handleVolumeChange,
         setTrack: handleTrackChange,
+        skipNext,
+        skipPrevious,
       }}
     >
       <iframe
