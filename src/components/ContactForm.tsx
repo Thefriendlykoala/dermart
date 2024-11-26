@@ -2,15 +2,36 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
-import ReCAPTCHA from "react-google-recaptcha";
 import { parsePhoneNumber, isValidPhoneNumber } from 'libphonenumber-js';
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
 
 const ContactForm = () => {
   const [file, setFile] = useState<File | null>(null);
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
-  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Load reCAPTCHA v3
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handlePhoneChange = (value: string) => {
     setPhone(value);
@@ -25,51 +46,76 @@ const ContactForm = () => {
     }
   };
 
+  const executeRecaptcha = async () => {
+    try {
+      const token = await window.grecaptcha.execute(
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY || 'your-recaptcha-site-key',
+        { action: 'submit_contact_form' }
+      );
+      return token;
+    } catch (error) {
+      console.error('reCAPTCHA execution failed:', error);
+      return null;
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    if (!captchaValue) {
+    setIsSubmitting(true);
+
+    try {
+      const token = await executeRecaptcha();
+      
+      if (!token) {
+        toast({
+          title: "Verification failed",
+          description: "Please try again later",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (phoneError) {
+        toast({
+          title: "Invalid phone number",
+          description: "Please enter a valid phone number",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const formData = new FormData(e.currentTarget);
+      
+      // In a real application, you would send this to your backend
+      const emailData = {
+        to: "lankylc.business@gmail.com",
+        from: formData.get("email"),
+        name: formData.get("name"),
+        phone: phone,
+        message: formData.get("message"),
+        attachment: file,
+        recaptchaToken: token
+      };
+
+      // Simulated success for demo
       toast({
-        title: "Verification required",
-        description: "Please complete the CAPTCHA verification",
+        title: "Message sent!",
+        description: "Thank you for your message. We'll get back to you soon.",
+      });
+
+      // Reset form
+      e.currentTarget.reset();
+      setFile(null);
+      setPhone("");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
         variant: "destructive",
       });
-      return;
+    } finally {
+      setIsSubmitting(false);
     }
-
-    if (phoneError) {
-      toast({
-        title: "Invalid phone number",
-        description: "Please enter a valid phone number",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    const formData = new FormData(e.currentTarget);
-    
-    // In a real application, you would send this to your backend
-    const emailData = {
-      to: "lankylc.business@gmail.com",
-      from: formData.get("email"),
-      name: formData.get("name"),
-      phone: phone,
-      message: formData.get("message"),
-      attachment: file,
-      captchaToken: captchaValue
-    };
-
-    // Simulated success for demo
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. We'll get back to you soon.",
-    });
-
-    // Reset form
-    e.currentTarget.reset();
-    setFile(null);
-    setPhone("");
-    setCaptchaValue(null);
   };
 
   return (
@@ -135,20 +181,12 @@ const ContactForm = () => {
         />
       </div>
 
-      <div className="flex justify-center my-4">
-        <ReCAPTCHA
-          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your-recaptcha-site-key"}
-          onChange={(value) => setCaptchaValue(value)}
-          theme="dark"
-        />
-      </div>
-
       <button 
         type="submit" 
-        className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary/80 transition duration-300"
-        disabled={!captchaValue || !!phoneError}
+        className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary/80 transition duration-300 disabled:opacity-50"
+        disabled={isSubmitting || !!phoneError}
       >
-        Send Message
+        {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   );
