@@ -31,14 +31,14 @@ const Art = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto text-center"
+        className="max-w-4xl mx-auto"
       >
         <motion.h1 
           key={currentCategory}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="text-4xl md:text-6xl font-bold mb-12"
+          className="text-4xl md:text-6xl font-bold mb-12 text-center"
         >
           {renderTitle('dermARTIST')}
         </motion.h1>
@@ -49,10 +49,10 @@ const Art = () => {
           onValueChange={(value) => setCurrentCategory(value)}
         >
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5 flex justify-center gap-4">
-            <TabsTrigger value="All" className="px-6">All Art</TabsTrigger>
-            <TabsTrigger value="Album Covers" className="px-6">Album Covers</TabsTrigger>
-            <TabsTrigger value="Logos" className="px-6">Logos</TabsTrigger>
-            <TabsTrigger value="Graffiti" className="px-6">Graffiti</TabsTrigger>
+            <TabsTrigger value="All" className="px-6 data-[state=active]:bg-primary/20">All Art</TabsTrigger>
+            <TabsTrigger value="Album Covers" className="px-6 data-[state=active]:bg-primary/20">Album Covers</TabsTrigger>
+            <TabsTrigger value="Logos" className="px-6 data-[state=active]:bg-primary/20">Logos</TabsTrigger>
+            <TabsTrigger value="Graffiti" className="px-6 data-[state=active]:bg-primary/20">Graffiti</TabsTrigger>
           </TabsList>
 
           <TabsContent value={currentCategory}>
