@@ -1,29 +1,17 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
-import ArtworkAnalysis from "@/components/ArtworkAnalysis";
-import { X } from 'lucide-react';
-
-interface Artwork {
-  id: string;
-  title: string;
-  imageUrl: string;
-  analysis: {
-    composition: string;
-    technique: string;
-    concept: string;
-    interpretation: string;
-  };
-}
+import ArtworkGrid from '@/components/ArtworkGrid';
+import ArtworkDialog from '@/components/ArtworkDialog';
+import { Artwork, ArtworkCategories } from '@/types/artwork';
 
 const Art = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [currentCategory, setCurrentCategory] = useState("All");
   const [allArtworks, setAllArtworks] = useState<Artwork[]>([]);
 
-  const artworks = {
-    "Digital/Photography": [
+  const artworks: ArtworkCategories = {
+    "Album Covers": [
       {
         id: "1",
         title: "Typography Study: Urban Brand",
@@ -140,17 +128,12 @@ const Art = () => {
   };
 
   useEffect(() => {
-    // Combine all artworks into the "All" category
     const combined = Object.values(artworks).flat();
     setAllArtworks(combined);
   }, []);
 
   const handleArtworkClick = (artwork: Artwork) => {
     setSelectedArtwork(artwork);
-  };
-
-  const handleClose = () => {
-    setSelectedArtwork(null);
   };
 
   const getCurrentArtworks = () => {
@@ -175,67 +158,22 @@ const Art = () => {
         >
           <TabsList className="w-full mb-8 bg-dermart-gray/20 border border-white/5">
             <TabsTrigger value="All">All Art</TabsTrigger>
-            <TabsTrigger value="Digital/Photography">Digital/Photography</TabsTrigger>
+            <TabsTrigger value="Album Covers">Album Covers</TabsTrigger>
             <TabsTrigger value="Graffiti">Graffiti</TabsTrigger>
           </TabsList>
 
           <TabsContent value={currentCategory}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {getCurrentArtworks().map((artwork, index) => (
-                <motion.div
-                  key={artwork.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="cursor-pointer"
-                  onClick={() => handleArtworkClick(artwork)}
-                >
-                  <div className="portfolio-card group relative overflow-hidden aspect-square">
-                    <img
-                      src={artwork.imageUrl}
-                      alt={artwork.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <h3 className="text-xl font-bold text-white mb-2">{artwork.title}</h3>
-                        <p className="text-white/80 text-sm">Click to view details →</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <ArtworkGrid 
+              artworks={getCurrentArtworks()} 
+              onArtworkClick={handleArtworkClick} 
+            />
           </TabsContent>
         </Tabs>
 
-        <Dialog open={!!selectedArtwork} onOpenChange={() => setSelectedArtwork(null)}>
-          <DialogContent className="bg-dermart-gray/95 border-white/10 text-white max-w-4xl">
-            <DialogClose className="absolute right-4 top-4 text-white/70 hover:text-white">
-              <X className="h-6 w-6" />
-            </DialogClose>
-            {selectedArtwork && (
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="relative aspect-square">
-                  <img
-                    src={selectedArtwork.imageUrl}
-                    alt={selectedArtwork.title}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-bold">{selectedArtwork.title}</h2>
-                  <div className="space-y-3">
-                    <p><span className="text-primary font-semibold">Composition:</span> {selectedArtwork.analysis.composition}</p>
-                    <p><span className="text-primary font-semibold">Technique:</span> {selectedArtwork.analysis.technique}</p>
-                    <p><span className="text-primary font-semibold">Concept:</span> {selectedArtwork.analysis.concept}</p>
-                    <p><span className="text-primary font-semibold">Interpretation:</span> {selectedArtwork.analysis.interpretation}</p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </DialogContent>
-        </Dialog>
+        <ArtworkDialog 
+          artwork={selectedArtwork} 
+          onClose={() => setSelectedArtwork(null)} 
+        />
       </motion.div>
     </div>
   );
