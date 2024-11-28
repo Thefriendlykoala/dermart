@@ -14,7 +14,7 @@ export const tracks: Track[] = [
     title: "BASIC MINDS",
     description: "Energetic rap with powerful lyrics",
     audioUrl: "/audio/BASIC MINDS.mp3",
-    albumArt: "/lovable-uploads/12a228f5-18b1-4497-b056-0aef570007da.png",
+    albumArt: "/lovable-uploads/565fce67-2984-49eb-b3af-9a492fc1da4c.png",
     category: "Rap"
   },
   {
@@ -54,7 +54,7 @@ export const tracks: Track[] = [
     title: "SUPERHERO",
     description: "Epic rap anthem with cinematic elements",
     audioUrl: "/audio/SUPERHERO.mp3",
-    albumArt: "/lovable-uploads/12a228f5-18b1-4497-b056-0aef570007da.png",
+    albumArt: "/lovable-uploads/565fce67-2984-49eb-b3af-9a492fc1da4c.png",
     category: "Rap"
   },
   {
