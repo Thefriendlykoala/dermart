@@ -64,5 +64,61 @@ export const tracks: Track[] = [
     audioUrl: "/audio/VIRUS.mp3",
     albumArt: "/placeholder.svg",
     category: "Rap"
+  },
+  {
+    id: "9",
+    title: "HEAVY",
+    description: "Hard-hitting EDM track with intense drops",
+    audioUrl: "/audio/HEAVY.mp3",
+    albumArt: "/placeholder.svg",
+    category: "EDM"
+  },
+  {
+    id: "10",
+    title: "MELBOURNE",
+    description: "Melbourne bounce style EDM track",
+    audioUrl: "/audio/MELBOURNE(FT4OGMIX).mp3",
+    albumArt: "/placeholder.svg",
+    category: "EDM"
+  },
+  {
+    id: "11",
+    title: "POWER BALL",
+    description: "Energetic EDM track with powerful beats",
+    audioUrl: "/audio/POWER BALL (ORIGINAL MIX).mp3",
+    albumArt: "/placeholder.svg",
+    category: "EDM"
+  },
+  {
+    id: "12",
+    title: "Shandi",
+    description: "Hardstyle remix with intense energy",
+    audioUrl: "/audio/Shandi (hardstyle remix).mp3",
+    albumArt: "/placeholder.svg",
+    category: "EDM"
+  },
+  {
+    id: "13",
+    title: "Stupid Bitch",
+    description: "Original EDM track with unique sound design",
+    audioUrl: "/audio/Stupid Bitch (orIginal track).mp3",
+    albumArt: "/placeholder.svg",
+    category: "EDM"
+  },
+  {
+    id: "14",
+    title: "TAKE IT EASY MAN",
+    description: "Laid-back EDM track with groovy beats",
+    audioUrl: "/audio/TAKE IT EASY MAN (ORIGINAL TRACK).mp3",
+    albumArt: "/placeholder.svg",
+    category: "EDM"
+  },
+  {
+    id: "15",
+    title: "WAVE MAKER",
+    description: "EDM track with wave-like synth patterns",
+    audioUrl: "/audio/WAVE MAKER (FT4OGMIX).mp3",
+    albumArt: "/placeholder.svg",
+    category: "EDM"
   }
 ];
