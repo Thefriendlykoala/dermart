@@ -11,8 +11,12 @@ const ArtworkDialog = ({ artwork, onClose }: ArtworkDialogProps) => {
   if (!artwork) return null;
 
   return (
-    <Dialog open={!!artwork} onOpenChange={onClose}>
-      <DialogContent className="bg-dermart-gray/95 border-white/10 text-white max-w-4xl">
+    <Dialog open={!!artwork} onOpenChange={onClose} modal={false}>
+      <DialogContent 
+        className="bg-dermart-gray/95 border-white/10 text-white max-w-4xl"
+        onPointerDownOutside={onClose}
+        onEscapeKeyDown={onClose}
+      >
         <DialogClose className="absolute right-4 top-4 text-white/70 hover:text-white">
           <X className="h-6 w-6" />
         </DialogClose>
