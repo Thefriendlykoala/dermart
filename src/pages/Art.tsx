@@ -1,14 +1,27 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ArtworkDialog from '@/components/ArtworkDialog';
 import ArtworkCarousel from '@/components/ArtworkCarousel';
+import ArtworkGrid from '@/components/ArtworkGrid';
 import { artworkData } from '@/data/artworkData';
 import { Artwork } from '@/types/artwork';
 
 const Art = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [currentCategory, setCurrentCategory] = useState("All");
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Check if device supports touch
+    const checkTouch = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+
+    checkTouch();
+    window.addEventListener('resize', checkTouch);
+    return () => window.removeEventListener('resize', checkTouch);
+  }, []);
 
   const getCurrentArtworks = () => {
     if (currentCategory === "All") {
@@ -56,10 +69,17 @@ const Art = () => {
           </TabsList>
 
           <TabsContent value={currentCategory}>
-            <ArtworkCarousel 
-              artworks={getCurrentArtworks()} 
-              onArtworkClick={setSelectedArtwork}
-            />
+            {isTouchDevice ? (
+              <ArtworkGrid 
+                artworks={getCurrentArtworks()} 
+                onArtworkClick={setSelectedArtwork}
+              />
+            ) : (
+              <ArtworkCarousel 
+                artworks={getCurrentArtworks()} 
+                onArtworkClick={setSelectedArtwork}
+              />
+            )}
           </TabsContent>
         </Tabs>
 
