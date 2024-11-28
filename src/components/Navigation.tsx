@@ -24,14 +24,14 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 px-4 sm:px-6 py-4 bg-dermart-black/80 backdrop-blur-md border-b border-white/5">
+    <nav className="fixed w-full z-50 px-3 sm:px-6 py-3 sm:py-4 bg-dermart-black/80 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl sm:text-2xl font-bold text-dermart-white group">
+        <Link to="/" className="text-lg sm:text-2xl font-bold text-dermart-white group">
           derm<span className="text-primary">ART</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-4 lg:space-x-8">
+        <div className="hidden md:flex space-x-2 lg:space-x-8">
           {links.map((link) => (
             <Link
               key={link.path}
@@ -47,7 +47,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-dermart-white/90 hover:text-primary transition-colors p-2"
+          className="md:hidden text-dermart-white/90 hover:text-primary transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >

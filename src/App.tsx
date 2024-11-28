@@ -14,7 +14,7 @@ const App = () => {
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <Navigation />
-          <main className="flex-1 pt-20 pb-24 sm:pb-28">
+          <main className="flex-1 pt-16 sm:pt-20 pb-24 sm:pb-28">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/art" element={<Art />} />
