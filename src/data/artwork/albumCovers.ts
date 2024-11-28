@@ -14,7 +14,7 @@ export const albumCovers: Artwork[] = [
   },
   {
     id: "album-2",
-    title: "Smoke Show - Typography",
+    title: "Smoke Show - Single",
     imageUrl: "/lovable-uploads/5cab4825-36fc-42b1-9e8f-c8c4bddd02ef.png",
     analysis: {
       composition: "Layered typographic design with smoky, translucent effects in yellow-green tones",
