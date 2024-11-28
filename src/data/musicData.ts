@@ -14,7 +14,7 @@ export const tracks: Track[] = [
     title: "BASIC MINDS",
     description: "Energetic rap with powerful lyrics",
     audioUrl: "/audio/BASIC MINDS.mp3",
-    albumArt: "/placeholder.svg",
+    albumArt: "/lovable-uploads/12a228f5-18b1-4497-b056-0aef570007da.png",
     category: "Rap"
   },
   {
@@ -22,7 +22,7 @@ export const tracks: Track[] = [
     title: "BIG DOG",
     description: "Epic rap anthem",
     audioUrl: "/audio/BIG DOG.mp3",
-    albumArt: "/placeholder.svg",
+    albumArt: "/lovable-uploads/6e5d8a69-98ff-400e-824a-c6bb7732404e.png",
     category: "Rap"
   },
   {
@@ -38,7 +38,7 @@ export const tracks: Track[] = [
     title: "Lanky LC",
     description: "Hard-hitting rap beats with a unique flow",
     audioUrl: "/audio/Lanky LC.mp3",
-    albumArt: "/placeholder.svg",
+    albumArt: "/lovable-uploads/bd7e0e32-9e98-4fab-97d3-d965ac8e5f10.png",
     category: "Rap"
   },
   {
@@ -54,7 +54,7 @@ export const tracks: Track[] = [
     title: "SUPERHERO",
     description: "Epic rap anthem with cinematic elements",
     audioUrl: "/audio/SUPERHERO.mp3",
-    albumArt: "/placeholder.svg",
+    albumArt: "/lovable-uploads/12a228f5-18b1-4497-b056-0aef570007da.png",
     category: "Rap"
   },
   {

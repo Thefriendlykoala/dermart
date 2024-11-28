@@ -25,7 +25,7 @@ export const albumCovers: Artwork[] = [
   },
   {
     id: "album-3",
-    title: "Smoke Show - Single",
+    title: "Trap Invaders Album - by Lanky LC",
     imageUrl: "/lovable-uploads/565fce67-2984-49eb-b3af-9a492fc1da4c.png",
     analysis: {
       composition: "Large-scale typography overlaid on gritty urban photography",
@@ -36,7 +36,7 @@ export const albumCovers: Artwork[] = [
   },
   {
     id: "album-4",
-    title: "Neon Wolves - EP Collection",
+    title: "Big Dog - Single",
     imageUrl: "/lovable-uploads/6e5d8a69-98ff-400e-824a-c6bb7732404e.png",
     analysis: {
       composition: "Grid of four vibrant wolf portraits with neon color schemes and dynamic effects",
@@ -47,7 +47,7 @@ export const albumCovers: Artwork[] = [
   },
   {
     id: "album-5",
-    title: "Nightmares EP - Urban Horror",
+    title: "Nightmares EP - by Lanky LC",
     imageUrl: "/lovable-uploads/bd7e0e32-9e98-4fab-97d3-d965ac8e5f10.png",
     analysis: {
       composition: "Black and white urban scene with a ghostly figure against graffiti-covered walls",
