@@ -25,6 +25,17 @@ export const albumCovers: Artwork[] = [
   },
   {
     id: "album-3",
+    title: "Smoke Show - Single",
+    imageUrl: "/lovable-uploads/565fce67-2984-49eb-b3af-9a492fc1da4c.png",
+    analysis: {
+      composition: "Large-scale typography overlaid on gritty urban photography",
+      technique: "Mixed media combining photography with transparent typography",
+      concept: "Urban decay meets modern typography in a commentary on city life",
+      interpretation: "The contrast between the clean typography and weathered background creates a narrative about urban transformation"
+    }
+  },
+  {
+    id: "album-4",
     title: "Neon Wolves - EP Collection",
     imageUrl: "/lovable-uploads/6e5d8a69-98ff-400e-824a-c6bb7732404e.png",
     analysis: {
@@ -32,17 +43,6 @@ export const albumCovers: Artwork[] = [
       technique: "Digital illustration with neon lighting effects and splash elements",
       concept: "Spirit animals reimagined through electronic music aesthetics",
       interpretation: "Each portrait represents different energy states through varied color palettes and effects, from electric greens to fiery oranges"
-    }
-  },
-  {
-    id: "album-4",
-    title: "Rap Invaders - Urban Typography",
-    imageUrl: "/lovable-uploads/565fce67-2984-49eb-b3af-9a492fc1da4c.png",
-    analysis: {
-      composition: "Large-scale typography overlaid on gritty urban photography",
-      technique: "Mixed media combining photography with transparent typography",
-      concept: "Urban decay meets modern typography in a commentary on city life",
-      interpretation: "The contrast between the clean typography and weathered background creates a narrative about urban transformation"
     }
   },
   {

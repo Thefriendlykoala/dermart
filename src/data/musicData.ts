@@ -46,7 +46,7 @@ export const tracks: Track[] = [
     title: "SMOKE SHOW",
     description: "Energetic rap track with powerful lyrics",
     audioUrl: "/audio/SMOKE SHOW.mp3",
-    albumArt: "/placeholder.svg",
+    albumArt: "/lovable-uploads/5cab4825-36fc-42b1-9e8f-c8c4bddd02ef.png",
     category: "Rap"
   },
   {
