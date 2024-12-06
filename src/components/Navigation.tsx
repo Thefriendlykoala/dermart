@@ -8,9 +8,9 @@ const Navigation = () => {
 
   const links = [
     { path: '/', label: 'derm[HOME]', display: 'dermHOME' },
-    { path: '/art', label: 'derm[ART]', display: 'dermART' },
-    { path: '/music', label: 'derm[MUSIC]', display: 'dermMUSIC' },
-    { path: '/web', label: 'derm[WEB]', display: 'dermWEB' },
+    { path: '/art', label: 'derm[ARTIST]', display: 'dermARTIST' },
+    { path: '/music', label: 'derm[PRODUCER]', display: 'dermPRODUCER' },
+    { path: '/web', label: 'derm[HACKER]', display: 'dermHACKER' },
     { path: '/contact', label: 'derm[FEATURED]', display: 'dermFEATURED' },
   ];
 
